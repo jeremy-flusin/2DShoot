@@ -33,21 +33,21 @@ public class Scene2 extends AbstractScene {
 		_fond = new Background(this);
 		_player = new Player(20, 300, 80, 67, getSceneFactory().getGame().getKeyboardListener(), this);
 		_enemy = new Enemy(700, 300, 80, 42, this);
-		_lightPlayer = new Light(200, 200, 500, new Color(105,205,247), this);
+		_lightPlayer = new Light(200, 200, 500, 0.1f, new Color(105,205,247), this);
 		_lightPlayer.linkToEntity(_player);
-		_lightEnemy = new Light(200, 200, 150, Color.red, this);
+		_lightEnemy = new Light(200, 200, 300, 0.03f, Color.red, this);
 		_lightEnemy.linkToEntity(_enemy);
 		_mask = new Mask(this);
 		_ammo = new Ammo(_player.getX(), _player.getY(), this);
-		_lightAmmo = new Light(0, 0, 60,  new Color(105,205,247), this);
+		_lightAmmo = new Light(0, 0, 35, 0.02f,  new Color(105,205,247), this);
 		_lightAmmo.linkToEntity(_ammo);
 		//Adding objects to the openGL scene
 		addEntity(_fond);
 		addEntity(_mask);
 		addEntity(_lightEnemy);
 		addEntity(_enemy);
-		addEntity(_ammo);
 		addEntity(_lightAmmo);
+		addEntity(_ammo);
 		addEntity(_lightPlayer);
 		addEntity(_player);
 	}
