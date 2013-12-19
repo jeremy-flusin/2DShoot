@@ -10,6 +10,10 @@ import com.jflusin.engine.scenes.AbstractScene;
 
 public class Player extends TexturedRectangleEntity{
 
+	//Textures constants
+	public static int T_RIGHT = 0;
+	public static int T_LEFT = 1;
+	
 	KeyboardListener _keyboardListener;
 	AbstractScene _scene;
 	int _speed = 20;
@@ -27,15 +31,27 @@ public class Player extends TexturedRectangleEntity{
 	public void update() {
 		
 		//Movements
+		int x = getX();
 		int y = getY();
+		if(_keyboardListener.isKeyPressed(KeyEvent.VK_LEFT)){
+			setTextureID(Player.T_LEFT);
+			x -= _speed;
+		}		
+		if(_keyboardListener.isKeyPressed(KeyEvent.VK_RIGHT)){
+			setTextureID(Player.T_RIGHT);
+			x += _speed;
+		}
 		if(_keyboardListener.isKeyPressed(KeyEvent.VK_UP)){
 			y += _speed;
 		}
 		else if(_keyboardListener.isKeyPressed(KeyEvent.VK_DOWN)){
 			y -= _speed;
 		}
+		if (x < 0) x = 0;
+		if (x > 720) x = 720;
 		if (y > 520) y = 520; // borne sup
-		if (y < 0) y = 0; //borne inf
+		if (y < 0) y = 0; //borne inf.
+		setX(x);
 		setY(y);
 		
 		//Fire
@@ -45,12 +61,12 @@ public class Player extends TexturedRectangleEntity{
 		//Ammo managing
 		for(Iterator<Ammo> it=ammoFired.iterator(); it.hasNext();) {
 			Ammo ammo = it.next();
-			int x = ammo.getX();
-			x += 10;
-			if (x > 800) {
+			int xammo = ammo.getX();
+			xammo += 10;
+			if (xammo > 800) {
 				it.remove();
 			}
-			ammo.setX(x);
+			ammo.setX(xammo);
 		}
 		
 	}

@@ -23,10 +23,11 @@ public class Scene2 extends AbstractScene {
 		super(pScreenFactory);
 
 		//TextureMapping
-		mapTexture(Player.class, "src/rsrc/starship.png");
-		mapTexture(Enemy.class, "src/rsrc/enemy.png");
-		mapTexture(Background.class, "src/rsrc/background.png");
-		mapTexture(Ammo.class, "src/rsrc/ammo.png");
+		mapTexture(Player.class, Player.T_RIGHT, "src/rsrc/starship_right.png");
+		mapTexture(Player.class, Player.T_LEFT, "src/rsrc/starship_left.png");
+		mapTexture(Enemy.class, 0, "src/rsrc/enemy.png");
+		mapTexture(Background.class, 0, "src/rsrc/background.png");
+		mapTexture(Ammo.class, 0, "src/rsrc/ammo.png");
 		
 		//Object instantiation
 		_fond = new Background(this);
@@ -53,19 +54,19 @@ public class Scene2 extends AbstractScene {
 	
 	@Override
 	protected void update() {
-		if(getSceneFactory().getGame().getKeyboardListener().isKeyPressed(KeyEvent.VK_ADD)){
+		if(getSceneFactory().getGame().getKeyboardListener().isKeyPressed(KeyEvent.VK_O)){
 			_lightPlayer.setRadius(0);
 			_lightEnemy.setRadius(0);
 			_mask.setWidth(0);
 			_lightAmmo.setRadius(0);
 		}
-		if(getSceneFactory().getGame().getKeyboardListener().isKeyPressed(KeyEvent.VK_ENTER)){
+		if(getSceneFactory().getGame().getKeyboardListener().isKeyPressed(KeyEvent.VK_P)){
 			_lightPlayer.setRadius(150);
 			_lightEnemy.setRadius(150);
 			_mask.setWidth(800);
 			_lightAmmo.setRadius(60);
 		}
-		
+				
 		_ammo.setX(_ammo.getX()+10);
 		if(_ammo.getX() > 800) {
 			_ammo.setX(_player.getX());

@@ -14,9 +14,9 @@ public class Scene extends AbstractScene {
 		player = new Player(20, 300, 80, 67, getSceneFactory().getGame().getKeyboardListener(), this);
 		badGuy = new Enemy(700, 300, 80, 42, this);
 
-		mapTexture(Ammo.class, "src/ammo.png");
-		mapTexture(Player.class, "src/starship.png");
-		mapTexture(Enemy.class, "src/enemy.png");
+//		mapTexture(Ammo.class, "src/ammo.png");
+//		mapTexture(Player.class, "src/starship.png");
+//		mapTexture(Enemy.class, "src/enemy.png");
 		
 		ammos = new ArrayList<>();
 		addEntity(player);
