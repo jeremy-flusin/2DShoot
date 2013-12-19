@@ -33,7 +33,7 @@ public class Scene2 extends AbstractScene {
 		_fond = new Background(this);
 		_player = new Player(20, 300, 80, 67, getSceneFactory().getGame().getKeyboardListener(), this);
 		_enemy = new Enemy(700, 300, 80, 42, this);
-		_lightPlayer = new Light(200, 200, 150, new Color(105,205,247), this);
+		_lightPlayer = new Light(200, 200, 500, new Color(105,205,247), this);
 		_lightPlayer.linkToEntity(_player);
 		_lightEnemy = new Light(200, 200, 150, Color.red, this);
 		_lightEnemy.linkToEntity(_enemy);
