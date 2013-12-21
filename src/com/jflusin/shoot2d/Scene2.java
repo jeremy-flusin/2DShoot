@@ -66,6 +66,12 @@ public class Scene2 extends AbstractScene {
 			_mask.setWidth(800);
 			_lightAmmo.setRadius(60);
 		}
+		if(getSceneFactory().getGame().getKeyboardListener().isKeyPressed(KeyEvent.VK_X)){
+			_lightPlayer.setRadius(_lightPlayer.getRadius() - 5);
+		}
+		if(getSceneFactory().getGame().getKeyboardListener().isKeyPressed(KeyEvent.VK_C)){
+			_lightPlayer.setRadius(_lightPlayer.getRadius() + 5);
+		}
 				
 		_ammo.setX(_ammo.getX()+10);
 		if(_ammo.getX() > 800) {
